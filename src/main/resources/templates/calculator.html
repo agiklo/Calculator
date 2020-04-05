@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>calculator</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+</head>
+<body>
+<style type="text/css">
+        *{
+            margin:0;
+            padding:0;
+         }
+        .calculator{
+            position:absolute;
+            top:50%;
+            left:50%;
+            transform: translate(-50%,-50%);
+        }
+        .button{
+        height:20px;
+            width:20px;
+            margin:12px;
+            border:none;
+            border-radius:3px;
+            background: #adadad;
+            color:rgb(0, 0, 0);
+            font-size:11px;
+            cursor:pointer;
+        }
+        .buttonC{
+        height:20px;
+            width:50px;
+            margin:12px;
+            border:none;
+            border-radius:3px;
+            background: #adadad;
+            color:rgb(0, 0, 0);
+            font-size:11px;
+            cursor:pointer;
+        }
+        .button:hover{
+            background:#FF9500;
+        }
+</style>
+<div class="calculator">
+    <h1>Calculator</h1>
+<form action="#" th:action="@{/calculator}" th:object="${calculator}" method="POST">
+    <input type="text" th:field="*{firstArg}"/>
+    <input type="text" th:field="*{secondArg}"/>
+    <p>
+        <p1>  options:</p1>
+        <input type="submit" class="buttonC" name="clear" value="Clear"/>
+        <input type="submit" class="button" name="add" value="+"/>
+        <input type="submit" class="button" name="subtract" value="-"/>
+        <input type="submit" class="button" name="multiply" value="×"/>
+        <input type="submit" class="button" name="divide" value="÷"/>
+    </p>
+    <h3><p th:text="'result: ' + ${result}"></p></h3>
+</form>
+</div>
+</body>
+</html>
